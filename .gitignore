@@ -32,7 +32,7 @@ data/images/*
 !data/scripts
 !data/images
 !data/images/zidane.jpg
-!data/images/bus.jpg
+!data/images/bus-*.jpg
 !data/*.sh
 
 results*.csv

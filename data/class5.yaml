@@ -4,19 +4,19 @@
 # parent
 # ├── yolov5
 # └── datasets
-#     └── coco128  ← downloads here
+#     └── yourname
 #         └── images/
-#             └── train2017/  存放训练图片
-#             └── val2017/    存放验证图片
+#             └── train/  存放训练图片
+#             └── val/    存放验证图片
 #         └── labels/
-#             └── train2017/  存放训练标签  class x_center y_center width height
-#             └── val2017/    存放验证标签
+#             └── train/  存放训练标签  class x_center y_center width height
+#             └── val/    存放验证标签
 
 
 # Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
 path: ./datasets/class5  # dataset root dir
-train: images/train2017  # train images (relative to 'path') 128 images
-val: images/val2017  # val images (relative to 'path') 128 images
+train: images/train   # train images (relative to 'path')
+val: images/val       # val images (relative to 'path')
 test:  # test images (optional)
 
 # Classes

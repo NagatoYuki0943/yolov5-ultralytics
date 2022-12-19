@@ -20,11 +20,9 @@ val: images/val       # val images (relative to 'path')
 test:  # test images (optional)
 
 # Classes
-nc: 5  # 分类数要和dataset中一致
-names: [
-  "R",
-  "huashang",
-  "shuiyin",
-  "yayin",
-  "zangwu",
-]  # class names
+names:
+  0: R
+  1: huashang
+  2: shuiyin
+  3: yayin
+  4: zangwu

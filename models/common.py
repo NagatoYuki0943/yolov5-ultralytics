@@ -362,7 +362,8 @@ class DetectMultiBackend(nn.Module):
             net = cv2.dnn.readNetFromONNX(w)
         elif onnx:  # ONNX Runtime
             LOGGER.info(f'Loading {w} for ONNX Runtime inference...')
-            check_requirements(('onnx', 'onnxruntime-gpu' if cuda else 'onnxruntime'))
+            # check_requirements(('onnx', 'onnxruntime-gpu' if cuda else 'onnxruntime'))
+            check_requirements(('onnx', 'onnxruntime-gpu'))
             import onnxruntime
             providers = ['CUDAExecutionProvider', 'CPUExecutionProvider'] if cuda else ['CPUExecutionProvider']
             session = onnxruntime.InferenceSession(w, providers=providers)

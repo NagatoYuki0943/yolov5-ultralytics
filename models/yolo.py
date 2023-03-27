@@ -176,7 +176,7 @@ class DetectionModel(BaseModel):
 
         # Define model
         ch = self.yaml['ch'] = self.yaml.get('ch', ch)  # input channels
-        if nc and nc != self.yaml['nc']:
+        if nc and nc != self.yaml['nc']: # 使用data config中的names长度覆盖模型配置文件中的类别
             LOGGER.info(f"Overriding model.yaml nc={self.yaml['nc']} with nc={nc}")
             self.yaml['nc'] = nc  # override yaml value
         if anchors:

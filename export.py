@@ -18,8 +18,8 @@ TensorFlow.js               | `tfjs`                        | yolov5s_web_model/
 PaddlePaddle                | `paddle`                      | yolov5s_paddle_model/
 
 Requirements:
-    $ pip install -r requirements.txt coremltools onnx onnx-simplifier onnxruntime openvino-dev tensorflow-cpu  # CPU
-    $ pip install -r requirements.txt coremltools onnx onnx-simplifier onnxruntime-gpu openvino-dev tensorflow  # GPU
+    $ pip install -r requirements.txt coremltools onnx onnxsim onnxruntime openvino-dev tensorflow-cpu  # CPU
+    $ pip install -r requirements.txt coremltools onnx onnxsim onnxruntime-gpu openvino-dev tensorflow  # GPU
 
 Usage:
     $ python export.py --weights yolov5s.pt --include torchscript onnx openvino engine coreml tflite ...
@@ -173,11 +173,11 @@ def export_onnx(model, im, file, opset, dynamic, simplify, prefix=colorstr('ONNX
     if simplify:
         try:
             cuda = torch.cuda.is_available()
-            # check_requirements(('onnxruntime-gpu' if cuda else 'onnxruntime', 'onnx-simplifier>=0.4.1'))
-            check_requirements(('onnxruntime-gpu', 'onnx-simplifier>=0.4.1'))
+            # check_requirements(('onnxruntime-gpu' if cuda else 'onnxruntime', 'onnxsim>=0.4.1'))
+            check_requirements(('onnxruntime-gpu', 'onnxsim>=0.4.1'))
             import onnxsim
 
-            LOGGER.info(f'{prefix} simplifying with onnx-simplifier {onnxsim.__version__}...')
+            LOGGER.info(f'{prefix} simplifying with onnxsim {onnxsim.__version__}...')
             model_onnx, check = onnxsim.simplify(model_onnx)
             assert check, 'assert check failed'
             onnx.save(model_onnx, f)

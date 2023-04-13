@@ -543,7 +543,7 @@ def run(
     # Load PyTorch model
     device = select_device(device)
     if half:
-        assert device.type != 'cpu' or coreml, '--half only compatible with GPU export, i.e. use --device 0'
+        assert device.type != 'cpu' or coreml or xml, '--half only compatible with GPU export, i.e. use --device 0' # openvino支持half,但是要使用cpu导出onnx的half会报错,所以要使用 --device 0, openvino导出和设备无关,不受影响
         assert not dynamic, '--half not compatible with --dynamic, i.e. use either --half or --dynamic but not both'
     model = attempt_load(weights, device=device, inplace=True, fuse=True)  # load FP32 model
 

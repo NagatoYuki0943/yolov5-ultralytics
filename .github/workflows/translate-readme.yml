@@ -9,7 +9,9 @@ jobs:
   stale:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/stale@v8
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           stale-issue-message: |

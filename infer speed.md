@@ -7,12 +7,12 @@
 # 注意点
 
 1. > 注意:
-   >
-   > `onnxruntime` 和 `onnxruntime-gpu` 不要同时安装，否则使用 `gpu` 推理时速度会很慢，如果同时安装了2个包，要全部卸载，再安装 'onnxruntime-gpu' 才能使用gpu推理，否则gpu速度会很慢
+    >
+    > `onnxruntime` 和 `onnxruntime-gpu` 不要同时安装，否则使用 `gpu` 推理时速度会很慢，如果同时安装了2个包，要全部卸载，再安装 'onnxruntime-gpu' 才能使用gpu推理，否则gpu速度会很慢
 
-1. 注意：openvino没法使用cuda，但是使用 --device 0 会提高推理速度
+2. 注意：openvino没法使用cuda，但是使用 --device 0 会提高推理速度
 
-   # table
+    # table
 
 |              | n    | s     | m     | l     | x     |
 | ------------ | ---- | ----- | ----- | ----- | ----- |
@@ -106,4 +106,3 @@ ort-cpu: 	 	Speed: 0.8ms pre-process, 567.9ms inference, 1.6ms NMS per image at 
 openvino-gpu:	Speed: 8.2ms pre-process, 384.6ms inference, 2.8ms NMS per image at shape (1, 3, 640, 640)
 openvino-cpu:	Speed: 0.6ms pre-process, 448.6ms inference, 1.5ms NMS per image at shape (1, 3, 640, 640)
 ```
-
